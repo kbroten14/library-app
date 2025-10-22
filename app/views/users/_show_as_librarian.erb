@@ -1,0 +1,19 @@
+<div id="feature" class="floatLeft">
+  <div id="featureHeading">
+    <h1 class="floatLeft">Customer : <%= "#{@customer.first_name} #{@customer.last_name}" %></h1>
+    <div class="clear"></div>
+  </div>
+
+
+  <div id="featureWrap" class="floatLeft reports">
+  	<h2>Account Details</h2>
+  
+    <div class="summary floatLeft" style="padding-top: 0px;">
+      <p>First Name: <strong><%= @customer.first_name %></strong></p>
+      <p>Last Name: <strong><%= @customer.last_name %></strong></p>
+      <p>Member Date: <strong><%= @customer.created_at.to_date %></strong></p>
+      <p>Book Count: <strong><%= link_to book_count(@customer), list_books_path(customer_id: @customer.id) %></strong></p>
+    </div>
+		
+  </div>
+</div>

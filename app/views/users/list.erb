@@ -1,0 +1,20 @@
+<div id="feature" class="floatLeft">
+  <div id="featureHeading">
+    <h1 class="floatLeft">Customer List</h1>
+    <div class="clear"></div>
+  </div>
+
+  <div id="featureWrap" class="floatLeft reports">  
+  	<table class="report" cellpadding="0" cellspacing="0">
+  		<tr>
+  			<th>Customer Name</th>
+  			<th>Book Count</th>
+  		</tr>
+  		<% @customers.each do |customer| -%>
+  			<tr class="<%= cycle("rowA", "rowB") -%>">
+          <td><%= link_to "#{customer.first_name} #{customer.last_name}", user_path(customer, view: 'librarian') %></td>
+          <td><%= book_count(customer) %></td>
+        </tr>
+      <% end -%>
+  </div>
+</div>

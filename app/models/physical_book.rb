@@ -1,0 +1,2 @@
+class PhysicalBook < Book
+end

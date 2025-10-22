@@ -1,0 +1,205 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/**------------ DEFAULT STYLES ------------ **/
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 0 0 0 0;
+}
+h1{
+	font-size: 24px;
+	margin: 0 0;
+	padding: 0 0;
+}
+h2{
+	font-size: 18px;
+	margin: 0 0;
+	padding: 0 0;
+}
+h3{
+	font-size: 16px;
+	margin: 0 0;
+	padding: 0 0;
+}
+p{
+	font-size: 13px;
+	margin: 0 0;
+	padding: 0 0;
+}
+ul{
+	margin: 0 0 0 25px;
+	padding: 0 0;
+}
+li{
+	padding: 0 0 10px 0;
+}
+img{
+	border: none;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+.clear{clear: both;}
+.floatLeft{float:left;}
+.floatRight{float:right;}
+.bold{font-weight:bold;}
+.italic{font-style:oblique;}
+.hidden{display:none;}
+.borderNone{border:none;}
+
+.flash_error p {
+	color:#d11919;
+	margin: 5px 0 10px 5px;
+}
+
+.flash_success p {
+	color:#307b12;
+	margin: 5px 0 10px 5px;
+}
+
+/**------------ CONTAINER STYLES ------------ **/
+div#container{
+	padding:0 50px 20px 50px;
+}
+
+
+
+/**------------ HEADER STYLES ------------ **/
+div#masthead{
+	background:#CDDCEC url(<%= asset_path "bp_bar.jpg" %>) bottom left repeat-x;
+	width:100%;
+	height:75px;
+}
+
+div#heading{
+	color:#707070;
+	font-size: 20px;
+	position:absolute;
+	top:22px;
+	left: 55px;
+}
+
+
+/**------------ NAV STYLES ------------ **/
+div#nav{
+	background:#FFF url(<%= asset_path "bp_nav-bgd.jpg" %>) top left repeat-x;
+	margin:65px 20px 20px 0;
+	width:260px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding:15px 0;
+}
+div#nav ul{
+	list-style-type:none;
+	padding:0 0;
+	margin:0 0;
+	font-size:14px;
+}
+div#nav ul li{
+	padding:7px 15px;
+	border-bottom:#FFF 1px solid;
+	color:#707070;
+}
+div#nav ul a li{
+	border-bottom:#FFF 1px solid;
+}
+div#nav ul li:hover{
+	background:#FFF url(<%= asset_path "bp_nav-hover-bgd.jpg" %>) top left repeat-y;
+	color:#FFF;
+	cursor:pointer;
+}
+div#nav ul li a:link, div#nav ul li a:visited, div#nav ul li a:active{
+	color:#707070;
+	text-decoration:none;
+}
+div#nav ul a:link, div#nav ul li a:visited, div#nav ul li a:active{
+	color:#707070;
+	text-decoration:none;
+}
+div#nav ul li a:hover{
+	color:#FFF;
+}
+div#nav ul li:hover a:link, div#nav ul li:hover a:visited, div#nav ul li:hover a:active{
+	color:#FFF;
+}
+
+/**------------ FEATURE STYLES ------------ **/
+div#feature{
+	background:#FFF;
+	width:690px;
+	min-height:500px;
+	margin-top:15px;
+}
+
+div#feature h1{
+	font-size:24px;
+	color:#707070;
+	margin:0 0 10px 0;
+	padding:2px 0 0 0;
+}
+div#feature h1 strong{
+	color:#ff8939;
+}
+
+div#featureHeading{
+	height:50px;
+}
+
+
+
+/**------------ FEATUREWRAP STYLES ------------ **/
+div#featureWrap  p.list { margin-left: 10px; }
+div#featureWrap{
+  margin: 0 20px 20px 0;
+	background:transparent url(<%= asset_path "bp_mod-bgd.png" %>) top left repeat;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border:#e1e1e1 1px solid;
+	padding:10px 10px;
+	min-width:500px;
+}
+
+div#featureWrap div p{
+	margin:0 0 5px 0;
+}
+div#featureWrap div.clear{
+	margin:0 0 0 0;
+	border:none;
+	padding:0 0 0 0;
+}
+
+div#featureWrap h2 {
+  margin-bottom: 15px;
+}
+
+/**------------ REPORTS STYLES ------------ **/
+
+table.report{
+	width:100%;
+	color:#3d3d3d;
+	margin:0 0 20px 0;
+}
+table.report th, table.report td{
+	padding:3px 5px;
+}
+table.report th{
+	font-size:12px;
+	background-color:#19274e;
+	color:#FFF;
+	border-right:#FFF 1px solid;
+}
+table.report th:last-child{
+	border-right:none;
+}
+table.report td{
+	font-size:11px;
+	text-align:center;
+}
+
+table.report tr.rowA{
+	background-color:transparent;
+}
+table.report tr.rowB{
+	background-color:#FFF;
+}

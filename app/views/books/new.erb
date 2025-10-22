@@ -1,0 +1,11 @@
+<div id="feature" class="floatLeft">
+  <div id="featureHeading">
+    <h1 class="floatLeft">Add New Books</h1>
+    <div class="clear"></div>
+  </div>
+
+  <%= form_tag import_books_path, multipart: true%>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import CSV" %>
+
+</div>

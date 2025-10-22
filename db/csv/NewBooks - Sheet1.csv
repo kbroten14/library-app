@@ -1,0 +1,9 @@
+type,isbn,title,author,category
+AudioBook,470081201,Fundamentails of Wavelets,"Goswami, Jaideva",signal_processing
+PhysicalBook,470081202,Working at Starbucks,"Serrano, Jonathan",coding
+AudioBook,470081203,Data Smart,"Foreman, John",data_science
+AudioBook,470081204,God Created the Integers,"Hawking, Stephen",mathematics
+AudioBook,470081205,Superfreakonomics,"Dubner, Stephen",economics
+PhysicalBook,470081206,Orientalism,"Said, Edward",history
+PhysicalBook,470081207,"Nature of Statistical Learning Theory, The","Vapnik, Vladimir",data_science
+PhysicalBook,470081208,Integration of the Indian States,"Menon, V P",history
