@@ -1,3 +1,7 @@
+<script type="module">
+  import "controllers/import_books";
+</script>
+
 <div id="feature" class="floatLeft">
   <div id="featureHeading">
     <h1 class="floatLeft">Add New Books</h1>
@@ -5,7 +9,13 @@
   </div>
 
   <%= form_tag import_books_path, multipart: true%>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV" %>
+  <%= file_field_tag :file,
+    id: "choose-csv-btn",
+    accept: ".csv"
+  %>
+  <%= submit_tag "Import CSV",
+    id: "import-csv-btn",
+    disabled: true
+  %>
 
 </div>
