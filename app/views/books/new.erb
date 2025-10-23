@@ -2,20 +2,27 @@
   import "controllers/import_books";
 </script>
 
-<div id="feature" class="floatLeft">
-  <div id="featureHeading">
-    <h1 class="floatLeft">Add New Books</h1>
-    <div class="clear"></div>
-  </div>
+<div>
+  <div id="feature" class="floatLeft">
+    <div id="featureHeading">
+      <h1 class="floatLeft">Add New Books</h1>
+      <div class="clear"></div>
+    </div>
 
-  <%= form_tag import_books_path, multipart: true%>
-  <%= file_field_tag :file,
-    id: "choose-csv-btn",
-    accept: ".csv"
-  %>
-  <%= submit_tag "Import CSV",
-    id: "import-csv-btn",
-    disabled: true
-  %>
-
+    <div style="margin-bottom: 20px;">
+      <%= form_tag import_books_path, multipart: true%>
+      <%= file_field_tag :file,
+        id: "choose-csv-btn",
+        accept: ".csv"
+      %>
+      <%= submit_tag "Import CSV",
+        id: "import-csv-btn",
+        disabled: true
+      %>
+    </div>
+    <div>
+      <p>
+        <%= link_to 'Download CSV template', '/template.csv', download: 'template.csv', class: 'btn' %>
+      </p>
+    </div>
 </div>
