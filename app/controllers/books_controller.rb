@@ -8,17 +8,21 @@ class BooksController < ApplicationController
   end
   
   def returned
-    @customer = Customer.find_customer(params[:customer_id])
-    book = CustomerBook.find_customers_books(params[:id], params[:customer_id])
-    book.status = 'returned'
+    result = Book.return_book(params[:id])
     
-    if book.save
-      flash[:success] = "Book has been marked as returned."
-    else
-      flash[:error] = "Book could not be marked as returned."
-    end
-    
-    redirect_back(fallback_location: customer_users_path)
+    flash[:notice] = result[:message]
+
+    # currently can't trigger refresh without duplicating page
+    # requires manual refresh to see changes
+  end
+
+  def checkout
+    result = Book.checkout_book(params[:book_id], params[:customer_id])
+
+    flash[:notice] = result[:message]
+
+    # currently can't trigger refresh without duplicating page
+    # requires manual refresh to see changes
   end
 
   def import

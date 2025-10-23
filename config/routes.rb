@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :books do
     collection do
       get :list, :export
-      post :returned, :import
+      post :returned, :import, :checkout
     end
   end
 end
