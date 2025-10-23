@@ -8,15 +8,17 @@
         <th>Genre</th>
         <th>Checkout</th>
   		</tr>
-  		<% @customer.available_books.each do |book| -%>
+  		<% Book.available_books.each do |book| -%>
   			<tr class="<%= cycle("rowA", "rowB") -%>">
           <td><%= book.title %></td>
           <td><%= book.author %></td>
           <td><%= book.category %></td>
           <td>
-            <%= hidden_field_tag :customer_id, @customer.id %>
-            <%= hidden_field_tag :book_id, book.id %>
-            <%= image_submit_tag("btn_reviewed.png", alt: "CHECKOUT", title: "CHECKOUT") %>						
+            <%= form_tag(checkout_books_path) do %>
+              <%= hidden_field_tag :customer_id, @customer.id %>
+              <%= hidden_field_tag :book_id, book.id %>
+              <%= image_submit_tag("btn_reviewed.png", alt: "CHECKOUT", title: "CHECKOUT") %>
+            <% end %>
           </td>
         </tr>
       <% end -%>
