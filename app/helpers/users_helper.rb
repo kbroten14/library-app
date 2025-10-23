@@ -1,8 +1,13 @@
 module UsersHelper
   include ApplicationHelper
   
-  def book_count(customer)
+  def total_book_count(customer)
     books = CustomerBook.where("customer_id = #{customer.id}")
+    books.size
+  end
+
+  def current_checked_out_books(customer)
+    books = CustomerBook.where("customer_id = #{customer.id} AND status = '#{Book::CHECKED_OUT_STATUS}'")
     books.size
   end
 

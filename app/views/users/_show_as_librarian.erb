@@ -12,7 +12,10 @@
       <p>First Name: <strong><%= @customer.first_name %></strong></p>
       <p>Last Name: <strong><%= @customer.last_name %></strong></p>
       <p>Member Date: <strong><%= @customer.created_at.to_date %></strong></p>
-      <p>Book Count: <strong><%= link_to book_count(@customer), list_books_path(customer_id: @customer.id) %></strong></p>
+      <p>Total Book Count: <strong><%= total_book_count(@customer) %></strong></p>
+      <p>Books Currently Checked Out: <strong><%= current_checked_out_books(@customer) %></strong></p>
+      <%= link_to "View Books", list_books_path(customer_id: @customer.id) %>
+
     </div>
 		
   </div>
