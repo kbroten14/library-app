@@ -22,6 +22,12 @@
     </table>
   </div>
   <div class="below-table">
+    <%= link_to "Download Books Status",
+                export_books_path,
+                class: "btn",
+                data: { turbo: false } %>
+  </div>
+  <div class="below-table">
     <%= render :partial => 'books/new' %>
   </div>
 </div>

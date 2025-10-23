@@ -11,6 +11,32 @@ class Book < ApplicationRecord
     end 
   end
 
+  def self.export_all
+    headers = %w{isbn title author status rentee updated_at}
+
+    CSV.generate(headers: true) do |csv|
+      csv << headers
+
+      Book.find_each do |book|
+        cb = book.customer_books&.first
+        status = cb&.status || 'available'
+        customer = cb&.customer
+        rentee = customer ? "#{customer.first_name} #{customer.last_name}" : ''
+
+        row = [
+          book.isbn,
+          book.title,
+          book.author,
+          status,
+          rentee,
+          book.updated_at
+        ]
+
+        csv << row
+      end
+    end
+  end
+
   def self.order_by_latest
     Book.order("created_at DESC")
   end

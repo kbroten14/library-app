@@ -26,6 +26,13 @@ class BooksController < ApplicationController
     redirect_to books_path, notice: "New Books Added!"
   end
 
+  def export
+    csv = Book.export_all
+    filename = "books-#{Date.today}.csv"
+    bom = "\uFEFF"
+    send_data bom + csv, filename: filename, type: 'text/csv; charset=utf-8', disposition: 'attachment'
+  end
+
   def index
     @books = Book.order_by_latest
   end
