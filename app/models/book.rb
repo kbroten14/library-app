@@ -6,8 +6,8 @@ class Book < ApplicationRecord
     
   def self.import(file)
     CSV.foreach(file.path, headers: :true) do |row|
-      book = Book.find_or_initialize_by_isbn(row["isbn"])
-      book.update_attributes row.to_hash
+      book = Book.find_or_initialize_by(isbn: row["isbn"])
+      book.update(row.to_hash)
     end 
   end
 
