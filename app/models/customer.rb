@@ -4,8 +4,8 @@ class Customer < User
   has_many :audio_books, -> { where(type: "AudioBook") }, through: :customer_books, source: :book
   has_many :physical_books, -> { where(type: "PhysicalBook") }, through: :customer_books, source: :book
   
-    def self.find_customer(customer)
-      Customer.where(["id = ?", customer]).first
+    def self.find_customer(customer_id)
+      Customer.where(["id = ?", customer_id]).first
     end
 end
   

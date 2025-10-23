@@ -81,21 +81,27 @@ div#heading{
 
 /**------------ NAV STYLES ------------ **/
 div#nav{
-	background:#FFF url(<%= asset_path "bp_nav-bgd.jpg" %>) top left repeat-x;
 	margin:65px 20px 20px 0;
-	width:260px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	padding:15px 0;
+	width:500px;
+	display:flex;
+	justify-content: center;
 }
 div#nav ul{
 	list-style-type:none;
 	padding:0 0;
 	margin:0 0;
 	font-size:14px;
+	display:flex;
+	flex-wrap:wrap;
+	gap:50px;
+	align-items: center;
 }
 div#nav ul li{
+	background:#FFF url(<%= asset_path "bp_nav-bgd.jpg" %>) top left repeat-x;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 	padding:7px 15px;
 	border-bottom:#FFF 1px solid;
 	color:#707070;
@@ -145,7 +151,10 @@ div#featureHeading{
 	height:50px;
 }
 
-
+.below-table {
+  clear: both;
+  margin-top: 1rem;
+}
 
 /**------------ FEATUREWRAP STYLES ------------ **/
 div#featureWrap  p.list { margin-left: 10px; }
