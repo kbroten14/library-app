@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
   
   def returned
-    result = Book.return_book(params[:id])
+    result = Book.return_book(book_id = params[:id], customer_id = params[:customer_id])
 
     if result[:success]
       flash[:success] = result[:message]
@@ -16,8 +16,7 @@ class BooksController < ApplicationController
       flash[:error] = result[:message]
     end
 
-    # currently can't trigger refresh without duplicating page
-    # requires manual refresh to see changes
+    redirect_to list_books_path(customer_id: params[:customer_id])
   end
 
   def checkout
@@ -29,8 +28,7 @@ class BooksController < ApplicationController
       flash[:error] = result[:message]
     end
 
-    # currently can't trigger refresh without duplicating page
-    # requires manual refresh to see changes
+    redirect_back(fallback_location: user_path(params[:customer_id]))
   end
 
   def import

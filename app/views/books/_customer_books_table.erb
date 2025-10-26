@@ -21,9 +21,9 @@
             <% if customer_book.status == 'checked out' %>
     					<%= form_tag(returned_books_path) do %>
     						<%= hidden_field_tag :customer_id, customer.id %>
-    						<%= hidden_field_tag :id, customer_book.id %>
+    						<%= hidden_field_tag :id, customer_book.book.id %>
                 <% if as_librarian %>
-    						  <%= image_submit_tag("btn_reviewed.png", alt: "RETURN", title: "RETURN") %>
+    						  <%= image_submit_tag("btn_reviewed.png", alt: "RETURN", title: "RETURN", data: { turbo: false }) %>
                 <% end %>
     					<% end %>
             <% end -%>

@@ -12,11 +12,14 @@ class Book < ApplicationRecord
     Book.where.not(id: CustomerBook.select(:book_id).where(status: CHECKED_OUT_STATUS))
   end
 
-  def self.return_book(customer_book_id)
-    book = CustomerBook.find(customer_book_id)
-    book.status = RETURNED_STATUS
+  def self.return_book(book_id, customer_id)
+    customer_book = CustomerBook.find_by(book_id: book_id, customer_id: customer_id)
+
+    return { success: false, message: "Customer does not have that book." } unless customer_book
+
+    customer_book.status = RETURNED_STATUS
     
-    if book.save
+    if customer_book.save
       return { success: true, message: "Book has been marked as returned." }
     else
       return { success: false, message: "Book could not be marked as returned." }

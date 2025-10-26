@@ -91,7 +91,7 @@ class BooksControllerTest < ActionController::TestCase
     should "redirect correctly" do 
       customer = create(:customer)
       book = create(:book)
-      customer_book = create(:customer_book, customer_id: customer.id, book_id: book.id, status: "checked out")
+      create(:customer_book, customer_id: customer.id, book_id: book.id, status: "checked out")
 
       request.env["HTTP_REFERER"] = list_books_path(customer_id: customer.id)     
       post :returned, params: { id: book.id, customer_id: customer.id }
