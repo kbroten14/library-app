@@ -63,7 +63,7 @@ class Book < ApplicationRecord
           book.title,
           book.author,
           book.category,
-          book.type,
+          book[:type],
           rentee,
           status,
           last_activity_at
