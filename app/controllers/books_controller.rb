@@ -9,8 +9,12 @@ class BooksController < ApplicationController
   
   def returned
     result = Book.return_book(params[:id])
-    
-    flash[:notice] = result[:message]
+
+    if result[:success]
+      flash[:success] = result[:message]
+    else
+      flash[:error] = result[:message]
+    end
 
     # currently can't trigger refresh without duplicating page
     # requires manual refresh to see changes
@@ -19,7 +23,11 @@ class BooksController < ApplicationController
   def checkout
     result = Book.checkout_book(params[:book_id], params[:customer_id])
 
-    flash[:notice] = result[:message]
+    if result[:success]
+      flash[:success] = result[:message]
+    else
+      flash[:error] = result[:message]
+    end
 
     # currently can't trigger refresh without duplicating page
     # requires manual refresh to see changes
