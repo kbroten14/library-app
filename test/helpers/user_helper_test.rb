@@ -7,7 +7,7 @@ class UsersHelperTest < ActionView::TestCase
         customer = create(:customer)
         customer_books = create_list(:customer_book, 2, customer_id: customer.id)
 
-        assert_equal customer_books.size, book_count(customer)
+        assert_equal customer_books.size, total_book_count(customer)
       end
     end
     
