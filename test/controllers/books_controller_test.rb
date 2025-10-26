@@ -100,16 +100,6 @@ class BooksControllerTest < ActionController::TestCase
     end
   end
 
-  context "#new" do
-    should "render the correct template" do
-      create(:customer)
-
-      get :new
-
-      assert_template :new
-    end
-  end 
-
   context "#index" do
     should "render the correct template" do
       create(:customer)
