@@ -46,7 +46,7 @@ class Book < ApplicationRecord
   end
 
   def self.export_all
-    headers = %w{isbn title author status rentee updated_at}
+    headers = %w{isbn title author category type rentee status last_activity_at}
 
     CSV.generate(headers: true) do |csv|
       csv << headers
@@ -54,6 +54,7 @@ class Book < ApplicationRecord
       Book.find_each do |book|
         cb = book.customer_books&.first
         status = cb&.status || AVAILABLE_STATUS
+        last_activity_at = cb&.updated_at || ''
         customer = cb&.customer
         rentee = customer ? "#{customer.first_name} #{customer.last_name}" : ''
 
@@ -61,9 +62,11 @@ class Book < ApplicationRecord
           book.isbn,
           book.title,
           book.author,
-          status,
+          book.category,
+          book.type,
           rentee,
-          book.updated_at
+          status,
+          last_activity_at
         ]
 
         csv << row
